@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Arc Ads: A Core Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Core Component using
+[ArcAds](https://github.com/washingtonpost/ArcAds).
 
-## Available Scripts
+### What does this Core Component give you?
 
-In the project directory, you can run:
+The ArcAds Core Component can be used in any PageBuilder Fusion implementation.
+It provides an interface for interacting with ArcAds and renders the ad. As long
+as you have a few pieces of information (DFP id, slot names and targeting
+values), you can get up and running very quickly.
 
-### `npm start`
+### How do you use this Core Component?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Check out the Skeleton Repo to see a basic Fusion implementation of it. You may
+need to alter targeting values, depending on business requirements.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### How can you fire it up locally?
 
-### `npm test`
+To get started locally and see an ad, you'll need three things:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. A DFP ID, usually a string of numbers.
+1. A slot name, usually given to you by DFP, or findable by looking at an ad
+   currently running on your site.
+1. Some ad dimensions that tell DFP what creative to return.
 
-### `npm run build`
+Once you've cloned the repo:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Rename the mdx file so that it's parsable by
+   docz`mv index.mdx.fixture index.mdx`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Change the dfp id and possibly the slotname within the mdx file.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```jsx
+<ArcAd
+   id="div-1"
+   dfpId={/* ADD YOUR ID HERE */}
+   slotName="something"
+   dimensions={[[728,90], [800,250]]}
+   ampLayout={{
+     width: 300,
+     height: 250,
+     multiSize: "300x150,300x100,300x75,300x50"
+   }}
+ ></ArcAd>
+```
 
-### `npm run eject`
+Make sure the above reflects the correct dfp ID.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. run `npm run docz:dev`
+3. Visit localhost:3000 to see your ad appearing.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Can I use this in AMP?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Yes! Just pass in the `isAmp` prop to be `true`.
