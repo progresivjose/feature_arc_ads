@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/progresivjose/ArcAds"
+    "url": "https://github.com/progresivjose/feature_arc_ads"
   },
   "dependencies": {
     "@abc-color/arcads": "^6.2.0",
