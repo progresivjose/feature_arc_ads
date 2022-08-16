@@ -1,12 +1,12 @@
 {
   "name": "@abc-color/feature_arc_ads",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/progresivjose/feature_arc_ads"
   },
   "dependencies": {
-    "@abc-color/arcads": "^6.2.0",
+    "@abc-color/arcads": "^6.2.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
