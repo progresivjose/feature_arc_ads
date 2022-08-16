@@ -1,7 +1,6 @@
 {
   "name": "@abc-color/feature_arc_ads",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/progresivjose/feature_arc_ads"
@@ -40,6 +39,11 @@
       "last 1 safari version"
     ]
   },
+  "files": [
+    "dist/index.js"
+  ],
+  "main": "dist/index.js",
+  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
