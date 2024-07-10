@@ -1,6 +1,7 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
 import ArcAd from ".";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 describe("<ArcAd>", () => {
   let props;
@@ -25,8 +26,9 @@ describe("<ArcAd>", () => {
   });
 
   it("renders", () => {
-    const instance = shallow(<ArcAd {...props} />);
-    expect(instance).toBeDefined();
+    render(<ArcAd {...props} />);
+
+    expect(screen).toBeDefined();
   });
 
   it("ads a arcAdsPrerenderer function to the window", (done) => {
@@ -43,18 +45,16 @@ describe("<ArcAd>", () => {
   });
 
   it("displays children on top", () => {
-    console.log("PROPS", props);
-
-    const instance = mount(<ArcAd {...props} />);
+    const { container } = render(<ArcAd {...props} />);
     const html = '<div class="my ads container class"><div>My Test Child</div><div id="test" class="homepage arcad"></div></div>';
 
-    expect(instance.html()).toBe(html);
+    expect(container).toContainHTML(html);
   });
 
   it("displays children on bottom", () => {
     props.childrenPosition = "bottom";
-    const instance = mount(<ArcAd {...props} />);
-    expect(instance.html()).toEqual(
+    const { container } = render(<ArcAd {...props} />);
+    expect(container).toContainHTML(
       '<div class="my ads container class"><div id="test" class="homepage arcad"></div><div>My Test Child</div></div>',
     );
   });
